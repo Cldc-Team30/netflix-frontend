@@ -15,7 +15,7 @@ export const Navbar = ({ isScrolled }) => {
     { name: "My List", link: "/mylist" },
   ];
   const { logout } = useAuth0();
-
+  
 
   return (
     <Container>
