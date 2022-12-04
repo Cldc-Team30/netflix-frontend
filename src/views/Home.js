@@ -7,9 +7,9 @@ import { useNavigate } from "react-router-dom";
 // import { useSelector, useDispatch } from "react-redux";
 import { FaPlay } from "react-icons/fa";
 import { AiOutlineInfoCircle } from "react-icons/ai";
+
 export const Home = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-
   const navigate = useNavigate();
 
   return (

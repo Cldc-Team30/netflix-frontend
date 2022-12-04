@@ -5,13 +5,14 @@ import background from "../assets/login.jpg";
 import { useLocation, useNavigate } from 'react-router-dom'
 import {BackgroundImage} from "../components/BackgroundImage";
 import {Header} from "../components/Header";
-
+import { useAuth0 } from "@auth0/auth0-react";
 
 export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
+  const { loginWithRedirect } = useAuth0();
 
   return (
     <Container>
@@ -24,7 +25,7 @@ export const Login = () => {
               <h3>Sign In</h3>
             </div>
             <div className="container flex column">
-              <input
+              {/* <input
                 type="text"
                 placeholder="Email"
                 onChange={(e) => setEmail(e.target.value)}
@@ -35,8 +36,8 @@ export const Login = () => {
                 placeholder="Password"
                 onChange={(e) => setPassword(e.target.value)}
                 value={password}
-              />
-              <button onClick={()=>{navigate('/home')}}>Sign In</button>
+              /> */}
+              <button onClick={() => loginWithRedirect()}>Sign In</button>
             </div>
           </div>
         </div>

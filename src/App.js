@@ -2,15 +2,23 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./views/Login";
 import {Home} from "./views/Home";
-
+import { useAuth0 } from '@auth0/auth0-react'
 
 export default function App() {
+  const { user, isAuthenticated, isLoading } = useAuth0();
+
   return (
-    <BrowserRouter>
+    <>
+      {!isAuthenticated && (<BrowserRouter>
       <Routes>
-        <Route exact path="/signin" element={<Login />} />
-        <Route exact path="/home" element={<Home />} />
+        <Route exact path="/" element={<Login />} />
       </Routes>
-    </BrowserRouter>
+    </BrowserRouter>)}
+      {isAuthenticated && (<BrowserRouter>
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+      </Routes>
+    </BrowserRouter>)}
+    </>
   );
 }

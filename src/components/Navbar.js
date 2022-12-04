@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import logo from "../assets/logo.png";
 import { FaPowerOff, FaSearch } from "react-icons/fa";
+import { useAuth0 } from "@auth0/auth0-react";
 export const Navbar = ({ isScrolled }) => {
   const [showSearch, setShowSearch] = useState(false);
   const [inputHover, setInputHover] = useState(false);
@@ -13,6 +14,8 @@ export const Navbar = ({ isScrolled }) => {
     { name: "Movies", link: "/movies" },
     { name: "My List", link: "/mylist" },
   ];
+  const { logout } = useAuth0();
+
 
   return (
     <Container>
@@ -55,7 +58,7 @@ export const Navbar = ({ isScrolled }) => {
             />
           </div>
           <button>
-            <FaPowerOff onClick={()=>{navigate('/signin')}}/>
+            <FaPowerOff onClick={() => logout({ returnTo: window.location.origin })}/>
           </button>
         </div>
       </nav>
