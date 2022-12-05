@@ -94,5 +94,5 @@ jobs:
         app-name: 'NetFlick'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_6981bb9e958e4810a3fc567a59316816 }}
-        package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+        package: release.zip
         
