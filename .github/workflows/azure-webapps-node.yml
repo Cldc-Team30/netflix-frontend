@@ -32,7 +32,7 @@ permissions:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
     - uses: actions/checkout@v3
 
@@ -46,12 +46,24 @@ jobs:
       run: |
         npm install --legacy-peer-deps
         npm run build --if-present
+        
+      # ZIP
+    - name: Zip Release
+  # You may pin to the exact commit or the version.
+  # uses: TheDoctor0/zip-release@09336613be18a8208dfa66bd57efafd9e2685657
+      uses: TheDoctor0/zip-release@0.6.2
+      with:
+        # Filename for archive
+        filename: release.zip
+        # Base path for archive files
+        path: ./build/*
+        
 
     - name: Upload artifact for deployment job
       uses: actions/upload-artifact@v3
       with:
         name: node-app
-        path: .
+        path: release.zip
 
   deploy:
     permissions:
