@@ -4,23 +4,27 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./views/Login";
 import {Home} from "./views/Home";
 import { Payments } from './views/Payments';
+import { Player } from './views/Player';
 import { useAuth0 } from '@auth0/auth0-react'
-
+import { useSelector, useDispatch } from 'react-redux'
+import { setPlatformBearer } from './datastore/userSlice'
 export const App = () => {
-  const { user, isAuthenticated , isLoading } = useAuth0();
-  const { getAccessTokenSilently } = useAuth0();
+  const dispatch = useDispatch()
+  const { user, isAuthenticated , getAccessTokenSilently  } = useAuth0();
+  const platformBearer = useSelector((state) => state.userState.platformBearer)
   useEffect(() => {
-    (async() => {
-      if(!isLoading && isAuthenticated) {
-        // console.log(platformBearer)
-        const token = await getAccessTokenSilently({
-          audience: `https://${process.env.REACT_APP_AUTH_DOMAIN}/api/v2/`,
-          scope: "read:all"
-        });
-        console.log(token)
+    const getUserMetadata = async () => {
+  
+      try {
+        const accessToken = await getAccessTokenSilently();
+        dispatch(setPlatformBearer(accessToken))
+      } catch (e) {
+        console.log(e.message);
       }
-    }) ();
-  }, [user, isAuthenticated, isLoading]);
+    };
+  
+    getUserMetadata();
+  }, [getAccessTokenSilently, user?.sub, dispatch]);
 
   return (
     <>
@@ -32,6 +36,7 @@ export const App = () => {
       {isAuthenticated && (<BrowserRouter>
       <Routes>
         <Route exact path="/" element={<Home />} />
+        <Route exact path='/player' element={<Player />} />
         <Route exact path='/payments' element={<Payments />} />
       </Routes>
     </BrowserRouter>)}
