@@ -79,8 +79,11 @@ jobs:
       uses: actions/download-artifact@v3
       with:
         name: node-app
-      
+        
+    - name: Azure Login
+      uses: Azure/login@v1
 
+    
 
     - name: 'Deploy to Azure Web App'
       uses: azure/webapps-deploy@v2
@@ -89,4 +92,5 @@ jobs:
         app-name: 'NetFlickCLDC'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_6981bb9e958e4810a3fc567a59316816 }}
+        package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
         
