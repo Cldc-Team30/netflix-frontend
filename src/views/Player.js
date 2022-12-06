@@ -12,7 +12,7 @@ export const Player = () => {
           <BsArrowLeft onClick={() => navigate(-1)} />
         </div>
         <video autoPlay loop controls muted>
-            <source src={`http://localhost:8000/video/test_id`} type="video/mp4"></source>
+            <source src={`https://netflick-server.azurewebsites.net/video/test_id`} type="video/mp4"></source>
         </video>
       </div>
     </Container>
