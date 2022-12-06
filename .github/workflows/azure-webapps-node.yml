@@ -23,7 +23,7 @@ on:
   workflow_dispatch:
 
 env:
-  AZURE_WEBAPP_NAME: Netflick   # set this to your application's name
+  AZURE_WEBAPP_NAME: NetFlick   # set this to your application's name
   AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
   NODE_VERSION: '18.x'                # set this to the node version to use
 
@@ -93,6 +93,6 @@ jobs:
       with:
         app-name: 'NetFlick'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_6981bb9e958e4810a3fc567a59316816 }}
+        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_AB8D5CF5C6B34B5A8A6E802719FD8130 }}
         package: release.zip
         
