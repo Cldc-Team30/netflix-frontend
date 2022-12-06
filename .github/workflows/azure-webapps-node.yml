@@ -93,6 +93,6 @@ jobs:
       with:
         app-name: 'NetFlick'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_AB8D5CF5C6B34B5A8A6E802719FD8130 }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_1fefa2b881244567b70eea8ded037aee }}
         package: release.zip
         
