@@ -35,7 +35,6 @@ export const App = () => {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path='/player/:id' element={<Player />} />
-        <Route exact path='/payments' element={<Payments />} />
         <Route exact path='/movies' element={<Movies />} />
       </Routes>
     </BrowserRouter>)}
