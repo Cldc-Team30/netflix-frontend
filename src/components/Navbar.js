@@ -12,8 +12,6 @@ export const Navbar = ({ isScrolled }) => {
   const links = [
     { name: "Home", link: "/" },
     { name: "Movies", link: "/movies" },
-    { name: "My List", link: "/mylist" },
-    { name: "Payments", link: "/payments" },
   ];
   const { logout } = useAuth0();
   
@@ -83,7 +81,6 @@ const Container = styled.div`
     padding: 0 4rem;
     align-items: center;
     transition: 0.3s ease-in-out;
-    background-color: #000;
     .left {
       gap: 2rem;
       .brand {

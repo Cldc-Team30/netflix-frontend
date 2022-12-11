@@ -3,7 +3,6 @@ import React, { useEffect } from 'react'
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./views/Login";
 import {Home} from "./views/Home";
-import { Payments } from './views/Payments';
 import { Player } from './views/Player';
 import { useAuth0 } from '@auth0/auth0-react'
 import { useSelector, useDispatch } from 'react-redux'
@@ -40,7 +39,6 @@ export const App = () => {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path='/player' element={<Player />} />
-        <Route exact path='/payments' element={<Payments />} />
       </Routes>
     </BrowserRouter>)}
     </>
