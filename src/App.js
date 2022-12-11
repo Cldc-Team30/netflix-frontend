@@ -29,9 +29,12 @@ export const App = () => {
   return (
     <>
       {!isAuthenticated && (<BrowserRouter>
-      <Routes>
+      {/* <Routes>
         <Route exact path="/" element={<Login />} />
-      </Routes>
+        <Route exact path='/player' element={<Login />} />
+        <Route exact path='/payments' element={<Login />} />
+      </Routes> */}
+      <Login />
     </BrowserRouter>)}
       {isAuthenticated && (<BrowserRouter>
       <Routes>
