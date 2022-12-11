@@ -7,17 +7,10 @@ import { useNavigate } from "react-router-dom";
 // import { useSelector, useDispatch } from "react-redux";
 import { FaPlay } from "react-icons/fa";
 import { AiOutlineInfoCircle } from "react-icons/ai";
-import {useGetVideosQuery} from '../services/videosApi'
 
 export const Home = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const navigate = useNavigate();
-  const {
-    data
-  } = useGetVideosQuery()
-  useEffect(() => {
-    console.log(data)
-  }, [data]);
   return (
     <Container>
       <Navbar isScrolled={isScrolled} />
@@ -33,7 +26,7 @@ export const Home = () => {
           </div>
           <div className="buttons flex">
             <button
-              onClick={() => navigate("/player")}
+              onClick={() => navigate("/player/1")}
               className="flex j-center a-center"
             >
               <FaPlay />

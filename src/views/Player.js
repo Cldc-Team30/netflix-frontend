@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { BsArrowLeft } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import { AzureMP } from 'react-azure-mp'
+import {useGetVideoQuery} from '../services/videosApi'
+
 export const Player = () => {
   const navigate = useNavigate();
-
+  const {
+    data, isLoading
+  } = useGetVideoQuery(location.pathname.split('/').pop())
   return (
     <Container>
       <div className="player">
@@ -16,10 +20,10 @@ export const Player = () => {
             <source src= "https://cldctestaccount-inwe.streaming.media.azure.net/634f408f-232a-42dc-8005-6700553b811c/goofy.ism/manifest"  type="application/vnd.ms-sstr+xml"></source>
         </video> */}
         <div  className="amp">
-          <AzureMP
+          {data && <AzureMP
             skin="amp-flush"
-            src={[{src: "https://cldctestaccount-inwe.streaming.media.azure.net/634f408f-232a-42dc-8005-6700553b811c/goofy.ism/manifest", type: "application/vnd.ms-sstr+xml" }]}
-          />
+            src={[{src: data.videoLink, type: "application/vnd.ms-sstr+xml" }]}
+          />}
         </div>
 
       </div>

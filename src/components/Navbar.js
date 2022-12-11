@@ -11,9 +11,7 @@ export const Navbar = ({ isScrolled }) => {
   const navigate = useNavigate();
   const links = [
     { name: "Home", link: "/" },
-    { name: "Movies", link: "/movies" },
-    { name: "My List", link: "/mylist" },
-    { name: "Payments", link: "/payments" },
+    { name: "Movies", link: "/movies" }
   ];
   const { logout } = useAuth0();
   

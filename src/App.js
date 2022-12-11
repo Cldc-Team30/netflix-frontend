@@ -5,6 +5,7 @@ import Login from "./views/Login";
 import {Home} from "./views/Home";
 import { Payments } from './views/Payments';
 import { Player } from './views/Player';
+import { Movies } from './views/Movies';
 import { useAuth0 } from '@auth0/auth0-react'
 import { useSelector, useDispatch } from 'react-redux'
 import { setPlatformBearer } from './datastore/userSlice'
@@ -29,18 +30,14 @@ export const App = () => {
   return (
     <>
       {!isAuthenticated && (<BrowserRouter>
-      {/* <Routes>
-        <Route exact path="/" element={<Login />} />
-        <Route exact path='/player' element={<Login />} />
-        <Route exact path='/payments' element={<Login />} />
-      </Routes> */}
-      <Login />
-    </BrowserRouter>)}
+        <Login />
+      </BrowserRouter>)}
       {isAuthenticated && (<BrowserRouter>
       <Routes>
         <Route exact path="/" element={<Home />} />
-        <Route exact path='/player' element={<Player />} />
+        <Route path='/player/:id' element={<Player />} />
         <Route exact path='/payments' element={<Payments />} />
+        <Route exact path='/movies' element={<Movies />} />
       </Routes>
     </BrowserRouter>)}
     </>
