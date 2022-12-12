@@ -11,7 +11,7 @@ export default React.memo(function Card({ index, movieData, isLiked = false }) {
     <Container>
       <img
         style={{backgroundColor:'white'}}
-        src={`https://image.tmdb.org/t/p/w500/bOGkgRGdhrBYJSLpXaxhXVstddV.jpg`}
+        src={movieData.videoImg}
         alt="card"
         onClick={() => navigate(`/player/${movieData.id}`)}
       />
