@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import {Navbar} from "../components/Navbar";
-import backgroundImage from "../assets/home.jpg";
-import MovieLogo from "../assets/homeTitle.webp";
+import backgroundImage from "../assets/movielogo2.jpg";
 import { useNavigate } from "react-router-dom";
-// import { useSelector, useDispatch } from "react-redux";
 import { FaPlay } from "react-icons/fa";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 
@@ -21,9 +19,6 @@ export const Home = () => {
           className="background-image"
         />
         <div className="container">
-          <div className="logo">
-            <img src={MovieLogo} alt="Movie Logo" />
-          </div>
           <div className="buttons flex">
             <button
               onClick={() => navigate("/player/1")}
@@ -65,7 +60,7 @@ const Container = styled.div`
         }
       }
       .buttons {
-        margin: 5rem;
+        margin: 0 3rem 10rem 3rem;
         gap: 2rem;
         button {
           font-size: 1.4rem;
@@ -78,7 +73,7 @@ const Container = styled.div`
           cursor: pointer;
           transition: 0.2s ease-in-out;
           &:hover {
-            opacity: 0.8;
+            opacity: 0.5;
           }
           &:nth-of-type(2) {
             background-color: rgba(109, 109, 110, 0.7);

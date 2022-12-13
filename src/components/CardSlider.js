@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import styled from "styled-components";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import Card from "./Card";
-export default React.memo(function CardSlider({ data, title }) {
+export default React.memo(function CardSlider({ data }) {
   const listRef = useRef();
   const [showControls, setShowControls] = useState(false);
 
@@ -13,7 +13,6 @@ export default React.memo(function CardSlider({ data, title }) {
       onMouseEnter={() => setShowControls(true)}
       onMouseLeave={() => setShowControls(false)}
     >
-      <h1>{title}</h1>
       <div className="wrapper">
         
         <div className="slider flex" ref={listRef}>
@@ -30,9 +29,6 @@ const Container = styled.div`
   gap: 1rem;
   position: relative;
   padding: 2rem 0;
-  h1 {
-    margin-left: 50px;
-  }
   .wrapper {
     .slider {
       width: max-content;
@@ -41,6 +37,5 @@ const Container = styled.div`
       transition: 0.3s ease-in-out;
       margin-left: 50px;
     }
-    
   }
 `;

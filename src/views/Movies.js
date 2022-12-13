@@ -26,13 +26,17 @@ export const Movies = () => {
         <Navbar isScrolled={isScrolled} />
       </div>
       <div className="data">
-        {data && <CardSlider data={data} title="Available Movies"/>}
+      <h2>Available Movies</h2>
+        {data && <CardSlider data={data} />}
       </div>
     </Container>
   );
 }
 
 const Container = styled.div`
+  h2{
+    margin-left:3.5rem;
+  }
   .data {
     margin-top: 8rem;
   }
