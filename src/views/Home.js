@@ -21,7 +21,7 @@ export const Home = () => {
         <div className="container">
           <div className="buttons flex">
             <button
-              onClick={() => navigate("/player/1")}
+              onClick={() => navigate("/player/3")}
               className="flex j-center a-center"
             >
               <FaPlay />
