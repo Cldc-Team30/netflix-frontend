@@ -8,12 +8,20 @@ import {useGetVideosQuery} from '../services/videosApi'
 
 export const Movies = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [filteredMovies, setFilteredMovies] = useState(null)
   const {
     data, isLoading
   } = useGetVideosQuery()
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
+  useEffect (() => {
+    if(data){
+      setFilteredMovies(data)
+    }
+  },[data])
+  const filterMovies = (filter) => {
+    setFilteredMovies(data.filter((movie) => movie.videoName.includes(filter)))
+  }
 
   window.onscroll = () => {
     setIsScrolled(window.pageYOffset === 0 ? false : true);
@@ -23,11 +31,11 @@ export const Movies = () => {
   return (
     <Container>
       <div className="navbar">
-        <Navbar isScrolled={isScrolled} />
+        <Navbar isScrolled={isScrolled} filterMovies={filterMovies}/>
       </div>
       <div className="data">
       <h2>Available Movies</h2>
-        {data && <CardSlider data={data} />}
+        {filteredMovies && <CardSlider data={filteredMovies} />}
       </div>
     </Container>
   );

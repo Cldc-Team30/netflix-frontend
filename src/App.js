@@ -9,9 +9,33 @@ import { useAuth0 } from '@auth0/auth0-react'
 import { useSelector, useDispatch } from 'react-redux'
 import { setPlatformBearer } from './datastore/userSlice'
 import { useVerfiyUserMutation } from './services/verifyApi';
+import styled from "styled-components";
+
+
+
+const Spinner = styled.div`
+  border: 16px solid #e50914;
+  border-top: 16px black solid;
+  border-radius: 50%;
+  height: 180px;
+  width: 180px;
+  animation: spin 2s linear infinite;
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+`;
+
+
 export const App = () => {
   const dispatch = useDispatch()
-  const { user, isAuthenticated , getAccessTokenSilently  } = useAuth0();
+  const { user, isAuthenticated , isLoading, getAccessTokenSilently  } = useAuth0();
   const platformBearer = useSelector((state) => state.userState.platformBearer)
   const [verifyUser] = useVerfiyUserMutation();
   useEffect(() => {
@@ -33,6 +57,10 @@ export const App = () => {
       verifyUser();
     }
     },[isAuthenticated])
+
+  if(isLoading) {
+    return <div className='spinner-container'><Spinner/></div>;
+  }
   return (
     <>
       {!isAuthenticated && (<BrowserRouter>

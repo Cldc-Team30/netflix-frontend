@@ -5,7 +5,7 @@ import styled from "styled-components";
 import logo from "../assets/logo.png";
 import { FaPowerOff, FaSearch } from "react-icons/fa";
 import { useAuth0 } from "@auth0/auth0-react";
-export const Navbar = ({ isScrolled }) => {
+export const Navbar = ({ isScrolled, filterMovies }) => {
   const [showSearch, setShowSearch] = useState(false);
   const [inputHover, setInputHover] = useState(false);
   const navigate = useNavigate();
@@ -54,6 +54,7 @@ export const Navbar = ({ isScrolled }) => {
                 setShowSearch(false);
                 setInputHover(false);
               }}
+              onChange={(e) => filterMovies(e.target.value)}
             />
           </div>
           <button>
