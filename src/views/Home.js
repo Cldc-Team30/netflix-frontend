@@ -27,10 +27,6 @@ export const Home = () => {
               <FaPlay />
               Play
             </button>
-            {/* <button className="flex j-center a-center">
-              <AiOutlineInfoCircle />
-              More Info
-            </button> */}
           </div>
         </div>
       </div>
@@ -51,7 +47,8 @@ const Container = styled.div`
     }
     .container {
       position: absolute;
-      bottom: 5rem;
+      top: 50%;
+      transform: translateY(-50%) translateX(5%);    
       .logo {
         img {
           width: 100%;
@@ -60,7 +57,6 @@ const Container = styled.div`
         }
       }
       .buttons {
-        margin: 0 3rem 10rem 3rem;
         gap: 2rem;
         button {
           font-size: 1.4rem;

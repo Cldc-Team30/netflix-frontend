@@ -13,6 +13,14 @@ Frontend hosted link: https://netflick.azurewebsites.net/
 
 ## UI Screenshots
 
-Sign Up Page:
+***Sign Up Page:***
 
 ![1670939863212](image/README/1670939863212.png)
+
+***Home Page:***
+
+![1670940099790](image/README/1670940099790.png)
+
+***Movies Page:***
+
+![1670940124510](image/README/1670940124510.png)

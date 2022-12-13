@@ -25,7 +25,7 @@ export default React.memo(function Card({ index, movieData, isLiked = false }) {
 
 const Container = styled.div`
   max-width: 400px;
-  width: 300px;
+  width: 400px;
   height: 100%;
   cursor: pointer;
   position: relative;
