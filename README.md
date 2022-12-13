@@ -24,3 +24,7 @@ Frontend hosted link: https://netflick.azurewebsites.net/
 ***Movies Page:***
 
 ![1670940124510](image/README/1670940124510.png)
+
+**Media Player:**
+
+![1670940767676](image/README/1670940767676.png)
